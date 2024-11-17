@@ -289,10 +289,12 @@ header nav .brand-span {
     font-size: 1.45rem;
 }
 
+/* 这个是修改顶头网站题目前面的图标的，原始值为6PX，现在修改成为12*/
+
 header .brand-logo .logo-img {
     height: 45px;
     vertical-align: middle;
-    padding-bottom: 6px;
+    padding-bottom: 12px;
 }
 
 header .brand-logo .logo-span {
@@ -593,85 +595,112 @@ header .go-back i {
     font-weight: 400;
 }
 
+/* 16, 32 48 64 80  ， 这是一个进度条的显示*/
+
+
 @-webkit-keyframes rainbow {
 
+    /*  RGB (R, G, B, 0~1透明度) */
+    /*  RGB (R, G, B, 0~1透明度) 透明度全部都是0.75      0.65*/
+    /*  RGB (156,39,176,0~1) 透明度全部都是0.75      0.65*/
     0%,
     100% {
-        background: rgba(156, 39, 176, 0.75);
-        background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: rgba(0, 0, 0, 0.3);
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+        background: -moz-linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
     }
-
+    /*
+    0%,
+    100% {
+        background: rgba(156, 39, 176, 0.1);
+        background: linear-gradient(45deg, rgba(156, 39, 176, 0.3) 0%, rgba(156, 39, 176, 0.3) 100%);
+        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.3) 0%, rgba(156, 39, 176, 0.3) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.3) 0%, rgba(156, 39, 176, 0.3) 100%);
+    }
+    
     16% {
-        background: rgba(132, 13, 121, 0.75);
+        background: rgba(132, 13, 121, 0.8);
         background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
     }
-
+    
     32% {
-        background: rgba(239, 83, 80, 0.75);
+        background: rgba(239, 83, 80, 0.8);
         background: linear-gradient(45deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
     }
 
     48% {
-        background: rgba(255, 87, 34, 0.75);
+        background: rgba(255, 87, 34, 0.8);
         background: linear-gradient(45deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
     }
 
     64% {
-        background: rgba(255, 160, 0, 0.75);
+        background: rgba(255, 160, 0, 0.8);
         background: linear-gradient(45deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 112, 66, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
     }
 
     80% {
-        background: rgba(233, 30, 99, 0.75);
+        background: rgba(233, 30, 99, 0.8);
         background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
+    */
 }
 
+
+
+/*  RGB (R, G, B, 0~1透明度) */
+/*  RGB (R, G, B, 0~1透明度) 透明度全部都是0.75      0.65*/
+
+/* 16, 32 48 64 80 */
+/*
 @keyframes rainbow {
+    
 
+
+    
     0%,
     100% {
-        background: rgba(156, 39, 176, 0.75);
+        background: rgba(156, 39, 176, 0.3);
         background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-    }
+        
 
+    }
+    
     16% {
-        background: rgba(132, 13, 121, 0.75);
+        background: rgba(132, 13, 121, 0.3);
         background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
     }
-
+    
     32% {
-        background: rgba(239, 83, 80, 0.75);
+        background: rgba(239, 83, 80, 0.3);
         background: linear-gradient(45deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
     }
 
     48% {
-        background: rgba(255, 87, 34, 0.75);
+        background: rgba(255, 87, 34, 0.3);
         background: linear-gradient(45deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
     }
 
     64% {
-        background: rgba(255, 160, 0, 0.75);
+        background: rgba(255, 160, 0, 0.3);
         background: linear-gradient(45deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 112, 66, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
@@ -683,7 +712,10 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
+    
 }
+*/
+
 
 .index-card {
     margin-top: -10px;
@@ -1058,8 +1090,8 @@ article .article-tags .chip {
     border-radius: 15px;
     margin-right: 5px;
     margin-bottom: 2px;
-    color: #42b983;
-    background: #fff;
+    color: #2d08b3; /* 原本#42b983;   */
+    background: #c61212; /* 原本#fff;   */
     border: 1px solid;
     transition: all 0.6s ease-in-out;
 }
@@ -1890,11 +1922,13 @@ p.search-result-summary{
     margin: 0 2px;
     padding: 1px 5px 1px 4px;
     border-radius: 2px;
-    background-color: #f2f2f2;
-    color: #e96900;
+    background-color: #ffffff;  /* 原本为白色 #f2f2f2; */
+    color: #960000; /* 原本为橘色 #e96900; */
     font-style: normal;
     white-space: pre-wrap;
 }
+/* 修改搜索的字体显示 */
+
 
 /*回到顶部按钮样式*/
 .top-scroll {
@@ -2143,6 +2177,7 @@ p.search-result-summary{
     padding: 0;
     margin: 0;
 }
+
 
 /* tag button */
 body.DarkMode .theme-btn {
