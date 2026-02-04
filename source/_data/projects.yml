@@ -1,0 +1,14 @@
+# 项目yml文件
+
+
+- title: "项目名称 1"
+  description: "这是项目 1 的简要描述。"
+
+  link: "https://example.com/project1"
+
+- title: "项目名称 2"
+  description: "这是项目 2 的简要描述。"
+  link: "https://example.com/project2"
+  date: "2023 - 11 - 20"
+  status: "已完成"
+  category: "Web应用"
