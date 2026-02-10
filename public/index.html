@@ -70,7 +70,7 @@
 <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/false">
 <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
 <link rel="stylesheet" type="text/css" href="/css/matery.css">
 <link rel="stylesheet" type="text/css" href="/css/my.css">
@@ -130,9 +130,28 @@
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/categories" class="waves-effect waves-light">
+
       
       <span>分类|Categories</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">
+          
+          <span>学习工具/Study Tools</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E7%82%B9-Theoretical-knowledge-points/">
+          
+          <span>理论知识点/Theoretical Knowledge Points</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
@@ -235,12 +254,32 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
 				<i class="fas fa-fw fa-link"></i>
 			
 			分类|Categories
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/ " style="margin-left:75px">
+				  
+		          <span>学习工具/Study Tools</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E7%82%B9-Theoretical-knowledge-points/ " style="margin-left:75px">
+				  
+		          <span>理论知识点/Theoretical Knowledge Points</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -474,26 +513,14 @@
 
 
 <main class="content">
-
+    
+    <!--   首页卡片区，显示梦想、音乐、视频和推荐等模块            -->
+    <!--
     
     <div id="indexCard" class="index-card">
         <div class="container ">
             <div class="card">
                 <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;君子曰：学不可以已。
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            青，取之于蓝，而青于蓝；冰，水为之，而寒于水。木直中绳，𫐓以为轮，其曲中规。虽有槁暴，不复挺者，𫐓使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。
-        </div>
-    </div>
-</div>
-
                     
 
                     
@@ -514,265 +541,94 @@
     </div>
     
 
+       
     
-
-     <!-- 在首页新添加了我的项目栏 -->
-    <div class="projects">
-        <h2>我的项目</h2>
-        
-          <ul>
-            
-              <li>
-                <h3><a target="_blank" rel="noopener" href="https://example.com/project1">项目名称 1</a></h3>
-                <p>这是项目 1 的简要描述。</p>
-              </li>
-            
-              <li>
-                <h3><a target="_blank" rel="noopener" href="https://example.com/project2">项目名称 2</a></h3>
-                <p>这是项目 2 的简要描述。</p>
-              </li>
-            
-          </ul>
-        
-      </div>
+    -->
 
 
+    <!-- ===== Announcements / 公告栏 ===== -->
+   <section class="projects-section container">
+    <div class="announce-board">
+    <div class="announce-head">
+        <span class="announce-badge">公告 | Announcements</span>
+        <h3 class="announce-title">Announcements</h3>
+        <span class="announce-sub">更新、计划与重要提醒</span> 
+    </div>
 
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/01/09/%E6%9C%9F%E5%88%8A%E6%B1%87%E9%9B%86/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
+    <ul class="announce-list">
+        <li>
+        <span class="dot"></span>
+        <span class="text">建议每次改主题前先备份：my.css / index.ejs</span>
+        </li>
+    </ul>
+    </div>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                外文刊《APPLIED SURFACE SCIENCE》分        区：2区影响因子：6.3自  引  率：14.80%推荐理由：该刊顶级的表面科学期刊潜力十足，杂志效率很高，非OA，无需版面费，非常适合普通学者！.
-《Journal
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Mr.Tik
-                                
-                            </span>
-                        </div>
-                    </div>
 
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/01/09/%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%9F%E5%88%8A%E3%80%81%E5%A2%9E%E5%88%8A%E3%80%81%E7%89%B9%E5%88%8A%E3%80%81%E9%9B%86%E5%88%8A%EF%BC%88%E8%BE%91%E5%88%8A%EF%BC%89/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="什么是期刊、增刊、特刊、集刊（辑刊）？">
-                            
-                            <span class="card-title">什么是期刊、增刊、特刊、集刊（辑刊）？</span>
-                        </div>
-                    </a>
+    <!-- ===== 我的项目 Projects Section ===== -->
+    <section class="projects-section container">
+    <div class="projects-header">
+        <h2 class="projects-title">我的项目 | My Projects</h2>
+        <p class="projects-subtitle">持续迭代的研究、工具与实践合集</p>
+    </div>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是期刊、增刊、特刊、集刊（辑刊）？期刊也称杂志，是指有固定名称、每期版式基本相同、定期或不定期的连续出版物。它的内容一般是围绕某一主题、学科或研究对象，由多位作者的多篇文章编辑而成，用卷、期或年、月顺序编号出版。
-每种期刊有固定的ISS
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    学习工具
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%BA%E6%96%87%E6%9C%9F%E5%88%8A/">
-                            <span class="chip bg-color">论文期刊</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/01/09/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E7%82%B91_20240514/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="问卷调查中，什么是Pre-test和Pilot test?">
-                            
-                            <span class="card-title">问卷调查中，什么是Pre-test和Pilot test?</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                大多数调查问卷的开展都是由远离该领域的研究人员开发的。
-而且无论研究人员有多少经验，他们的参考框架都是有限的。因此，在开始收集数据之前，必须进行预测试(Pre-test)或者试点测试（Pilot-test）。
-预测试(Pre-test)和试
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E7%82%B9-Theoretical-knowledge-points/" class="post-category">
-                                    理论知识点/Theoretical knowledge points
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E7%AE%A1%E7%90%86%E5%AD%A6/">
-                            <span class="chip bg-color">管理学</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/11/17/AHA_v1.1%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="关于版本 AHA v1.1 的更新">
-                            
-                            <span class="card-title">关于版本 AHA v1.1 的更新</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                AHA v1 版本的更新历史记录AHA的建立本着分享和展示的初衷，这意味着需要通过不断的优化尝试的将分享和展示变得有趣和有用。
-本作者尝试定期去更新一些功能，而这些功能是建立在 hexo 的基础之上，同时部署在 github.io 内。
-更
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    版本更新历史记录
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/AHAv1/">
-                            <span class="chip bg-color">AHAv1</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2024/03/27/hello-world/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hello World">
-                            
-                            <span class="card-title">Hello World</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Mr.Tik
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
+    <div class="projects-grid">
+        <article class="project-card">
+        <h3 class="project-name">数据库学习</h3>
+        <p class="project-desc">macOS + Python + MySQL 实战路线图与笔记归档。</p>
+        <div class="project-meta">
+            <span class="tag">学习</span><span class="tag">数据库</span>
         </div>
-    </article>
+        <div class="project-actions">
+            <a class="btn primary" href="/projects/database/">查看</a>
+            <a class="btn ghost" href="https://github.com/你的仓库" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        </article>
 
+        <article class="project-card">
+        <h3 class="project-name">学院公众号项目</h3>
+        <p class="project-desc">菜单结构、办事指南模板、运营内容规范化。</p>
+        <div class="project-meta">
+            <span class="tag">运营</span><span class="tag">模板</span>
+        </div>
+        <div class="project-actions">
+            <a class="btn primary" href="/projects/wechat/">查看</a>
+        </div>
+        </article>
+
+        <article class="project-card">
+        <h3 class="project-name">个人博客</h3>
+        <p class="project-desc">Hexo + Matery 深度定制，CSS/版面持续优化。</p>
+        <div class="project-meta">
+            <span class="tag">Hexo</span><span class="tag">前端</span>
+        </div>
+        <div class="project-actions">
+            <a class="btn primary" href="/projects/site/">查看</a>
+        </div>
+        </article>
+
+
+        
+    </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    
 </main>
+
+
+
+
+
+
+
+
 
 
 

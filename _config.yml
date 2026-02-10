@@ -107,11 +107,11 @@ theme: hexo-theme-matery
 # deploy是编辑一键部署的配置
 deploy:
   type: git
-  repository: https://github.com/ahaup-team/ahaup-team.github.io
+  repository: git@github.com:ahaup-team/ahaup-team.github.io.git
 
   # 这是仓库的链接 https://github.com/ahaup-team/ahaup-team.github.io
 
-  branch: main
+  branch: gh-pages
   message: 更新博客
 
 

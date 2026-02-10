@@ -1,42 +1,802 @@
 /* Here is your custom css styles. */
 /* 自定义的样式 */
 
+/* 001 主题色调：学术灰色调 */
+/* ===== Academic Gray Theme ===== */
 
-.projects {
-    margin-top: 20px;
-    margin-right: 5%;
-    margin-left: 5%;
-    padding: 10px;
-    background-color: #f9f9f9; 
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* 001 主色 */
 
-    h2 {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-
-    ul {
-    list-style: circle;
-    padding: 10px;
-
-    li {
-        margin-bottom: 20px;
-    }
-
-    h3 {
-        margin-bottom: 5px;
-    }
-    }
+:root {
+  --main-color: #2E2E2E;
+  --secondary-color: #6B7280;
+  --accent-color: #2F6F5E;
 }
+
+/* 链接 */
+a { color: var(--accent-color); }
+a:hover {
+  color: #24594B;
+}
+
+/* 标题 */
+h1, h2, h3, h4, h5 {
+  color: var(--main-color);
+  font-weight: 600;
+}
+
+/* 002 正文 */
+body {
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Merriweather", serif;
+  color: #2E2E2E;
+  line-height: 1.8;
+}
+
+/* 代码 */
+code, pre {
+  font-family: "JetBrains Mono", monospace;
+}
+
+
+.projects{
+  margin-top: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.projects h2{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects ul{
+  list-style: circle;
+  padding: 10px;
+}
+
+.projects ul li{
+  margin-bottom: 20px;
+}
+
+.projects h3{
+  margin-bottom: 5px;
+}
+
+/*=================================*/
+
+/* =====================================================
+   Matery 导航二级菜单（真实结构版）
+   命中：ul.right.nav-menu li > ul
+===================================================== */
+
+/* 二级菜单容器 */
+ul.right.nav-menu li > ul {
+  width: max-content !important;
+  min-width: max-content !important;
+
+  padding: 10px 0 !important;
+  border-radius: 10px !important;
+
+  white-space: nowrap !important;
+  overflow: visible !important;
+
+  background-color: #fff !important;
+  z-index: 9999 !important;
+}
+
+/* 二级菜单项 */
+ul.right.nav-menu li > ul > li > a {
+  margin-left: 0 !important;          /* 干掉 75px */
+  padding: 12px 28px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+
+  text-align: center !important;
+  line-height: 1.6 !important;
+  height: auto !important;
+}
+
+/* span 中英混排稳定 */
+ul.right.nav-menu li > ul > li > a > span {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+/* li 自适应高度 */
+ul.right.nav-menu li > ul > li {
+  height: auto !important;
+}
+
+
+/* ===== 二级下拉：白框宽度随内容自适应（最终版） ===== */
+
+/* 白框容器：改为 inline-block，并按内容决定宽度 */
+ul.right.nav-menu li > ul {
+  display: inline-block !important;   /* 关键：不要 block */
+  width: max-content !important;
+  min-width: 0 !important;            /* 防止主题设了最小宽度 */
+  padding: 10px 0 !important; /* 上下内边距保持不变，左右内边距由 a 决定 */
+  border-radius: 10px !important;
+  /* background: #fff !important; */ /* 原白色改为半透明白 */
+  background: rgba(255, 255, 255, 0.88) !important; /* 0.88 学术感、柔和（推荐） */
+  /*0.95 → 几乎不透明（偏正式）,0.88 → 学术感、柔和（推荐）,0.80 → 更通透,0.70 → 很轻（文字对比要注意）*/
+  /* backdrop-filter: blur(10px) !important; */ /* 毛玻璃效果 */
+  white-space: nowrap !important;
+}
+
+
+/* 每一项不要强制 100% 宽（避免把白框撑死成固定宽） */
+ul.right.nav-menu li > ul > li {
+  width: auto !important;
+}
+
+/* a 依然用 block（保证一项一行），但宽度由内容决定 */
+ul.right.nav-menu li > ul > li > a {
+  display: block !important;
+  width: auto !important;
+  margin-left: 0 !important;
+  padding: 12px 28px !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  line-height: 1.8 !important;
+}
+
+ul.right.nav-menu li.nav-item {
+  position: relative;
+}
+ul.right.nav-menu li.nav-item > ul {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+
+/* =====================================================
+   桌面端：二级下拉菜单 hover 才显示（默认隐藏）
+   仅作用于顶部导航 ul.right.nav-menu
+===================================================== */
+
+/* 1) 默认隐藏所有二级菜单 */
+@media screen and (min-width: 993px) {
+  ul.right.nav-menu li > ul {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* 2) hover 到父 li 才显示二级菜单 */
+  ul.right.nav-menu li:hover > ul {
+    display: inline-block !important; /* 保持你要的自适应宽度 */
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  ul.right.nav-menu li > ul {
+    transition: opacity .15s ease, transform .15s ease;
+    transform: translateY(6px);
+  }
+  ul.right.nav-menu li:hover > ul {
+    transform: translateY(0);
+  }
+}
+
+
+
+/* =====================================================
+   Matery 导航二级菜单 更紧凑版调整示例
+   命中：ul.right.nav-menu li > ul
+===================================================== */
+
+/* 更紧凑版二级菜单调整示例 ，第一种方式*/ 
+ul.right.nav-menu li > ul {
+  padding: 6px 0 !important;   /* 原来 10px → 改小 */
+}
+
+ul.right.nav-menu li > ul > li > a {
+  padding: 8px 26px !important; /* 原来 12px → 8px */
+}
+
+ul.right.nav-menu li > ul > li > a {
+  line-height: 1.5 !important;  /* 原来 1.8 → 1.5 */
+}
+
+/* 更紧凑版二级菜单 ，更加紧凑，极简*/
+ul.right.nav-menu li > ul {
+  padding: 4px 0 !important;
+}
+
+ul.right.nav-menu li > ul > li > a {
+  padding: 6px 24px !important;
+  line-height: 1.4 !important;
+}
+
+
+
+/* 左侧高亮条 */
+ul.right.nav-menu li > ul{
+  background: rgba(255,255,255,.85) !important; /* 半透明背景 */
+  border-radius: 12px !important; /* 圆角更大一些 */
+  box-shadow: 0 10px 28px rgba(0,0,0,.12); /* 更柔和的阴影 */
+  overflow: hidden; /* 让高亮条贴边更干净 */
+}
+/* 二级菜单项：保持原有内边距，增加 hover 效果 */
+ul.right.nav-menu li > ul > li > a{
+  padding: 10px 22px !important; /* 内边距稍微调整，保持紧凑但不拥挤 */
+  line-height: 1.5 !important;
+  position: relative;
+}
+
+/* 左侧高亮条：使用伪元素，初始状态透明 */
+ul.right.nav-menu li > ul > li > a::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+}
+/* hover 时高亮条变色 */
+ul.right.nav-menu li > ul > li > a:hover{
+  background: rgba(0,0,0,.05) !important; /* hover 背景色，保持轻盈 */
+}
+
+ul.right.nav-menu li > ul > li > a:hover::before{
+  background: var(--accent-color);
+}
+
+/* 一级导航项相对定位，为了让二级菜单的绝对定位相对于它 */
+ul.right.nav-menu > li > a {
+  position: relative;
+}
+
+
+/* ==================================*/
+/* 一级导航 hover 效果：增加背景和边框，突出当前项 */
+
+/* 一级导航 hover 强化 */
+ul.right.nav-menu > li > a:hover {
+  color: #ffffff !important;              /* 白字 */
+  background: rgba(0, 0, 0, 0.25);         /* 深色半透明底 */
+  border-radius: 6px;
+}
+
+/* 一级导航 hover 时的下划线效果 */
+ul.right.nav-menu > li > a::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 6px;
+  height: 2px;
+  background: transparent;
+  transition: background 0.2s ease; /* 平滑过渡 */
+}
+ul.right.nav-menu > li > a:hover::after {
+  background: #FFD166;
+}
+
+
+
+/* =============================== 顶部导航 hover：轻微淡入动画（一级菜单） ======================================== */
+
+/*
+动画速度：.18s（更快） / .25s（更柔）
+背景强度：rgba(0,0,0,.18)（更淡）/ .28（更明显）
+上浮距离：-1px（克制）/ -2px（更明显）*/
+
+/* 1) 默认状态：准备动画 */
+ul.right.nav-menu > li > a{
+  transition: color .50s ease, background-color .50s ease, transform .50s ease; /* 平滑过渡 */
+  border-radius: 6px;                 /* 防止 hover 时圆角突然出现造成跳动 */
+}
+
+/* 2) hover 状态：颜色+背景淡入，微微上浮 */
+ul.right.nav-menu > li > a:hover{
+  color: #ffffff !important;
+  background-color: rgba(0,0,0,.32); /* 半透明黑，突出但不突兀 */
+  transform: translateY(-5px);
+}
+
+/* 3) 可选：获得焦点（键盘 Tab）也有同样效果，更专业 */
+ul.right.nav-menu > li > a:focus-visible{
+  color: #ffffff !important;
+  background-color: rgba(0,0,0,.22);
+  outline: none;
+}
+
+/* ===== 顶部导航滚动渐变背景效果 ===== */
+
+/* 顶部：轻毛玻璃 */
+header.navbar-fixed nav {
+  background: rgba(20, 25, 30, 0.32); /* 半透明深色 */
+  backdrop-filter: blur(5px); /* 毛玻璃效果 */
+  -webkit-backdrop-filter: blur(5px); /* 兼容 Safari */
+  transition: background .8s ease, backdrop-filter .8s ease; /* 平滑过渡 */ /* 可选 */ /* 让变化更柔和 */
+}
+
+/* 滚动后：渐变 */
+header.navbar-fixed.scrolled nav {
+  background: linear-gradient(
+    90deg, /* 从左到右的渐变 */
+    rgba(88, 92, 124, 0.92), /* 左侧颜色，半透明深蓝灰 */
+    rgba(120, 92, 140, 0.92) /* 右侧颜色，半透明紫灰 */
+  );
+  backdrop-filter: blur(4px); /* 滚动后稍微降低毛玻璃强度，突出渐变效果 */
+  -webkit-backdrop-filter: blur(4px); /* 兼容 Safari */
+}
+
+
+/* ===== Projects：卡片化栅格（高度自定义） ===== */
+.projects-section{
+  margin: 24px 5%;
+  padding: 28px;
+  background: rgba(255,255,255,.86);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.projects-header{
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.projects-title{
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: .02em;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.projects-subtitle{
+  margin: 8px 0 0;
+  color: var(--secondary-color);
+  font-size: 14px;
+}
+
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.project-card{
+  background: rgba(255,255,255,.82);
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.project-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(0,0,0,.12);
+}
+
+.project-name{
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.project-desc{
+  margin: 0 0 12px;
+  color: #3b3b3b;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.project-meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(47,111,94,.10);
+  color: var(--accent-color);
+  border: 1px solid rgba(47,111,94,.18);
+}
+
+.project-actions{
+  display: flex;
+  gap: 10px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,.10);
+}
+
+.btn.primary{
+  background: var(--accent-color);
+  color: #fff !important;
+  border-color: transparent;
+}
+
+.btn.ghost{
+  background: rgba(255,255,255,.65);
+  color: var(--main-color) !important;
+}
+
+@media (max-width: 1024px){
+  .projects-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  .projects-section{ margin: 18px 4%; padding: 18px; }
+  .projects-grid{ grid-template-columns: 1fr; }
+}
+
+
+/* ===============================Academic Announcement Board高级学术风公告栏（居中）================================ */
+
+/* 整体容器：居中 + 毛玻璃 */
+.projects-section .announce-board{
+  /* max-width: 1000px; */
+  max-width: var(--home-section-max);               /* 学术论文常见阅读宽度 */
+  margin: 0 auto 36px;            /* 居中 + 下方留白 */
+  padding: 20px 28px; /* 内边距稍微增加，保持舒适 */
+
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+/* 头部：居中、低调 */
+.projects-section .announce-head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+/* 公告 badge：像期刊栏目 */
+.projects-section .announce-badge{
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  padding: 3px 12px;
+  border-radius: 999px;
+
+  background: rgba(0,0,0,.75);
+  color: #fff;
+}
+
+/* Announcements 标题 */
+.projects-section .announce-title{
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: rgba(0,0,0,.82);
+}
+
+/* 副标题：注释感 */
+.projects-section .announce-sub{
+  font-size: .92rem;
+  color: rgba(0,0,0,.55);
+}
+
+/* 列表整体 */
+.projects-section .announce-list{
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+/* 单条公告：学术注释风 */
+.projects-section .announce-list li{
+  display: flex;
+  align-items: center;
+  justify-content: center;        /* 关键：文字居中 */
+
+  gap: 10px;
+  padding: 10px 0;
+
+  font-size: .98rem;
+  line-height: 1.7;
+  color: rgba(0,0,0,.75);
+
+  position: relative;
+}
+
+/* 左侧小点：像脚注标记 */
+.projects-section .announce-list .dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.35);
+  flex-shrink: 0;
+}
+
+/* 公告正文文字 */
+.projects-section .announce-list .text{
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+/* hover：极轻微强调 */
+.projects-section .announce-list li:hover{
+  color: rgba(47,111,94,.9);
+}
+
+
+/* ============================================== 统一首页卡片容器宽度：君子曰 + 我的项目 ===================================== */
+:root{
+  --home-section-max: 1280px;   /* 你可以改成 1100/1280，看你审美 */
+  --home-section-pad: 4%; /* 你可以改成 4%/6%，看你审美 */ /* 侧边距 */
+}
+
+/* 我的项目：限制到同一最大宽度 */
+.projects-section{
+  max-width: var(--home-section-max);
+  margin: 24px auto !important;        /* 关键：左右自动居中 */
+  padding: 28px; /* 内边距保持不变 */
+}
+
+/* 君子曰卡片：用同一最大宽度 */
+.notice, .notice-card, .index-card, .card-panel, .junzi-card{
+  max-width: var(--home-section-max);
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* 让我的项目跟主题 container 一致宽度 */
+.projects-section.container{
+  margin: 24px auto !important;  /* 居中，不要 5% */
+  padding: 28px; /* 内边距保持不变 */
+  max-width: none !important;    /* 交给 container 控制宽度 */
+  width: auto !important;
+}
+
+
+/* ===== 强制统一：君子曰卡片(#indexCard) 与 我的项目(section.projects-section) 宽度一致 ===== */
+:root{
+  --home-max: 1200px;   /* 你可改 1100 / 1280 */
+  --home-gap: 40px;     /* 左右留白（越大越窄） */
+}
+
+/* 统一两块“外层容器”的实际宽度 */
+#indexCard,
+section.projects-section.container{
+  max-width: var(--home-max) !important;
+  width: min(var(--home-max), calc(100% - var(--home-gap))) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 防止 section 里还有 margin: 5% 之类遗留 */
+section.projects-section.container{
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+
+article#articles.container{
+  max-width: var(--home-max) !important;
+  width: min(var(--home-max), calc(100% - var(--home-gap))) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+
+/* =====================================================
+   Academic TOC Style — 首页仅标题列表（学术目录风）
+   放到 my.css 最底部
+===================================================== */
+
+/* 可调参数 */
+:root{
+  --toc-max: 1000px;            /* 列表最大宽度 */
+  --toc-gap: 40px;              /* 两侧留白（越大越窄） */
+  --toc-line: rgba(0,0,0,.12);  /* 左侧竖线颜色 */
+  --toc-dot: rgba(0,0,0,.22);   /* 小圆点颜色 */
+  --toc-hover: var(--accent-color); /* hover 强调色，建议用主色的某个变体 */
+}
+
+/* 文章区整体宽度和你前面统一的 home 宽度一致（可选） */
+#articles.container.articles{
+  max-width: var(--toc-max);
+  width: min(var(--toc-max), calc(100% - var(--toc-gap))) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 单列 */
+/* 取消默认的两列布局，强制每条目录项占满整行 */
+#articles .article{
+  width: 100% !important;
+  margin: 0 0 10px 0 !important;
+}
+
+/* 去卡片感：透明背景、无阴影 */
+/* 取消默认的卡片样式，让每条目录项更简洁，突出文本内容 */
+#articles .card{
+  background: transparent !important;
+  box-shadow: none !important; /* 去掉阴影 */
+  border-radius: 0 !important; /* 去掉圆角 */
+  margin: 0 !important;
+}
+
+/* 只隐藏封面图，不隐藏 card-image（标题在里面） */
+#articles .card-image img{
+  display: none !important;
+}
+
+/* 继续隐藏摘要（保留“仅标题”） */
+#articles .summary,
+#articles .card-content > p{
+  display: none !important;
+}
+
+
+
+/* 每条“目录项”的排版：左线 + dot */
+#articles .card-content{
+  position: relative;
+  padding: 10px 12px 10px 28px !important; /* 左侧给竖线/圆点留空间 */
+  border-left: 2px solid var(--toc-line);
+}
+
+
+
+/* 标题 */
+/* 标题字体调整：更学术感的字体、大小和间距 */
+#articles .card-title{
+  font-size: 1.06rem;
+  font-weight: 650;
+  letter-spacing: .2px;
+  line-height: 1.6;
+  margin: 0 !important; /* 去掉默认 margin，保持紧凑 */
+}
+
+/* 标题链接：hover 轻微淡入 + 右移 */
+#articles .card-title a{
+  color: rgba(0,0,0,.82);
+  transition: color .25s ease, transform .25s ease, opacity .25s ease;
+  display: inline-block;
+}
+
+/* hover 时：颜色变主色，右移 + 轻微淡入，突出当前项 */
+#articles .card-title a:hover{
+  color: var(--toc-hover);
+  transform: translateX(6px);
+  opacity: .95;
+}
+
+/* 元信息：日期/分类（弱化显示） */
+#articles .post-meta{
+  margin-top: 4px !important;
+  font-size: .86rem;
+  opacity: .62;
+}
+
+/* 适配暗色模式（可选，如果你有暗黑） */
+body.dark #articles .card-title a{
+  color: rgba(255,255,255,.86);
+}
+body.dark #articles .card-content{
+  border-left-color: rgba(255,255,255,.14);
+}
+body.dark #articles .card-content::before{
+  background: rgba(0,0,0,.2);
+  border-color: rgba(255,255,255,.26);
+}
+
+/*  标题在 card-image 里：把它做成目录项 */
+#articles .card-image .card-title{
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+
+  display: block !important;
+  padding: 10px 12px 10px 28px !important;
+  margin: 0 !important;
+
+  font-size: 1.06rem !important;
+  font-weight: 650 !important;
+  letter-spacing: .2px !important;
+  line-height: 1.6 !important;
+
+  border-left: 2px solid var(--toc-line);
+}
+
+/* 圆点（跟着标题走，比放在 card-content 更准） */
+#articles .card-image .card-title::before{
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--toc-dot);
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+
+/* 标题链接 hover 动画 */
+#articles .card-image .card-title a{
+  color: rgba(0,0,0,.82) !important;
+  transition: color .25s ease, transform .25s ease, opacity .25s ease;
+  display: inline-block;
+}
+#articles .card:hover .card-image .card-title a{
+  color: var(--toc-hover) !important;
+  transform: translateX(6px);
+  opacity: .95;
+}
+#articles .card:hover .card-image .card-title::before{
+  border-color: var(--toc-hover);
+  background: rgba(47,111,94,.10);
+  transform: scale(1.05);
+}
+
+/* ===== Academic Glass Dark Title (毛玻璃黑) ===== */
+#articles .card-image{
+  background: rgba(0, 0, 0, 0.38) !important; /* 半透明黑 */
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+
+/* 标题文字 */
+#articles .card-image .card-title{
+  background: transparent !important;
+  color: rgba(255,255,255,.92) !important; /* 高对比但不纯白 */
+  font-weight: 600;
+}
+
+
+
+
+
+
 
     /*
     display: flex;
-    justify-content: center; */
-    /* 水平居中*/ 
-   /* align-items: center;*/
-    /* 垂直居中*/ 
-    /* min-height: 10vh;*/
-    /* 确保父容器至少占满整个视口高度*/ 
+    justify-content: center; 
+    */
+    /* 水平居中 */ 
+   /* align-items: center; */
+    /* 垂直居中 */ 
+    /* min-height: 10vh; */
+    /* 确保父容器至少占满整个视口高度 */ 
