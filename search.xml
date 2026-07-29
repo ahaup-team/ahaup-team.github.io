@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>03-003-AHA-V1.1.1-更新</title>
+      <link href="/2026/07/29/03-003AHA-v1.1.1%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0/"/>
+      <url>/2026/07/29/03-003AHA-v1.1.1%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="AHA-V1-1-1-更新"><a href="#AHA-V1-1-1-更新" class="headerlink" title="AHA-V1.1.1-更新"></a>AHA-V1.1.1-更新</h1><h2 id="1-更换主题壁纸。"><a href="#1-更换主题壁纸。" class="headerlink" title="1. 更换主题壁纸。"></a>1. 更换主题壁纸。</h2><p>上一次采用了马年的主题壁纸，新年主题已过，更改一下。</p><h2 id="2-取消主页左右滑动，浏览文章的这个功能。"><a href="#2-取消主页左右滑动，浏览文章的这个功能。" class="headerlink" title="2. 取消主页左右滑动，浏览文章的这个功能。"></a>2. 取消主页左右滑动，浏览文章的这个功能。</h2><p>这个功能以前没有仔细发现过，偶然间滑动主题壁纸，发现左右滑动可以直接切换浏览文章，觉得此功能比较鸡肋，直接取消掉。这个网站功能比较单一，不需要特别复杂的浏览功能。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 版本更新记录-VersionUpdateHistory </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AHA </tag>
+            
+            <tag> 更新历史 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AHA 动态升级路线图</title>
       <link href="/2026/02/17/03-002-aha-dynamic-roadmap/"/>
       <url>/2026/02/17/03-002-aha-dynamic-roadmap/</url>
