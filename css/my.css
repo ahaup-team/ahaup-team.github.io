@@ -1,0 +1,917 @@
+/* Here is your custom css styles. */
+/* 自定义的样式 */
+
+/* 001 主题色调：学术灰色调 */
+/* ===== Academic Gray Theme ===== */
+
+/* 001 主色 */
+
+:root {
+  --main-color: #2E2E2E;
+  --secondary-color: #6B7280;
+  --accent-color: #0277ed;
+  --background-card: #fef9f3;
+}
+
+/* 链接 */
+a { color: var(--accent-color); }
+a:hover {
+  color: #0277ed;
+}
+
+/* 标题 */
+h1, h2, h3, h4, h5 {
+  color: var(--main-color);
+  font-weight: 600;
+}
+
+/* 002 正文 */
+body {
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Merriweather", serif;
+  color: #2E2E2E;
+  line-height: 1.8;
+}
+
+/* #2E2E2E
+/* 代码 */
+code, pre {
+  font-family: "JetBrains Mono", monospace;
+}
+
+
+.projects{
+  margin-top: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.projects h2{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects ul{
+  list-style: circle;
+  padding: 10px;
+}
+
+.projects ul li{
+  margin-bottom: 20px;
+}
+
+.projects h3{
+  margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   Matery 导航二级菜单（最终整合版）
+   命中结构：ul.right.nav-menu li > ul
+===================================================== */
+
+/* 一级 li 相对定位，保证二级绝对定位以它为参照 */
+ul.right.nav-menu li.nav-item{
+  position: relative;
+}
+
+/* -----------------------------
+   一级菜单：hover 动画（统一版）
+   - 淡入背景 + 微上浮 + 下划线
+------------------------------ */
+ul.right.nav-menu > li > a{
+  position: relative;
+  border-radius: 6px;
+  transition: color .35s ease, background-color .35s ease, transform .35s ease;
+}
+
+/* 下划线（默认透明） */
+ul.right.nav-menu > li > a::after{
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 6px;
+  height: 2px;
+  background: transparent;
+  transition: background .25s ease;
+}
+
+ul.right.nav-menu > li > a:hover{
+  color: #ffffff !important;
+  background-color: rgba(0,0,0,.32);
+  transform: translateY(-3px); /* 建议 -3px：不容易导致二级菜单闪烁 */
+}
+
+ul.right.nav-menu > li > a:hover::after{
+  background: rgba(255,255,255,.92);
+}
+
+/* 键盘可访问性 */
+ul.right.nav-menu > li > a:focus-visible{
+  color: #ffffff !important;
+  background-color: rgba(0,0,0,.22);
+  outline: none;
+}
+
+/* -----------------------------
+   二级菜单容器（白天默认）
+------------------------------ */
+ul.right.nav-menu li > ul{
+  position: absolute;
+  top: calc(100% - 30px) ;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(4px);
+  z-index: 9999 !important;
+
+  display: inline-block;
+  width: max-content !important;
+  min-width: 0 !important;
+
+  padding: 6px 0 !important;
+  border-radius: 12px !important;
+  white-space: nowrap !important;
+  overflow: hidden;
+
+  background: rgba(255,255,255,.88) !important;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 10px 28px rgba(0,0,0,.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease, visibility .15s ease;
+}
+
+/* 二级菜单项 li */
+ul.right.nav-menu li > ul > li{
+  width: auto !important;
+  height: auto !important;
+}
+
+/* 二级菜单链接 a */
+ul.right.nav-menu li > ul > li > a{
+  position: relative;
+  display: block !important;
+  width: auto !important;
+
+  margin-left: 0 !important;
+  padding: 6px 24px !important;
+  line-height: 1.4 !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+
+  color: rgba(0,0,0,.78) !important;
+  background: transparent !important;
+}
+
+/* 中英混排 span */
+ul.right.nav-menu li > ul > li > a > span{
+  display: inline-block !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+/* 左侧高亮条（默认透明） */
+ul.right.nav-menu li > ul > li > a::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+}
+
+/* hover 效果 */
+ul.right.nav-menu li > ul > li > a:hover{
+  background: rgba(0,0,0,.05) !important;
+  color: rgba(0,0,0,.90) !important;
+}
+ul.right.nav-menu li > ul > li > a:hover::before{
+  background: var(--accent-color);
+}
+
+/* -----------------------------
+   桌面端：hover 才显示二级菜单
+   ✅ 加“hover 缓冲”：避免一级上浮导致鼠标瞬间离开引发闪烁
+------------------------------ */
+@media screen and (min-width: 993px){
+  /* hover 父 li 或 hover 子 ul 都保持显示 */
+  ul.right.nav-menu li:hover > ul,
+  ul.right.nav-menu li > ul:hover{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* =====================================================
+   DarkMode：二级下拉菜单（暗色毛玻璃）
+===================================================== */
+body.DarkMode ul.right.nav-menu li > ul{
+  background: rgba(18,18,18,.88) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.55) !important;
+}
+
+body.DarkMode ul.right.nav-menu li > ul > li > a{
+  color: rgba(255,255,255,.84) !important;
+}
+
+body.DarkMode ul.right.nav-menu li > ul > li > a:hover{
+  background: rgba(255,255,255,.08) !important;
+  color: rgba(255,255,255,.96) !important;
+}
+
+/* =====================================================
+   顶部导航背景：顶部毛玻璃 / 滚动渐变
+   ✅ 白天/暗黑分离，避免风格打架
+===================================================== */
+
+/* 默认（白天） */
+header.navbar-fixed nav{
+  background: rgba(20,25,30,.32);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: background .8s ease, backdrop-filter .8s ease;
+}
+
+/* 滚动后（白天） */
+header.navbar-fixed.scrolled nav{
+  background: linear-gradient(
+    90deg,
+    rgba(88, 92, 124, 0.92),
+    rgba(120, 92, 140, 0.92)
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* DarkMode：默认更深一点 */
+body.DarkMode header.navbar-fixed nav{
+  background: rgba(18,18,18,.72) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* DarkMode：滚动后渐变更克制（不花） */
+body.DarkMode header.navbar-fixed.scrolled nav{
+  background: linear-gradient(
+    90deg,
+    rgba(28, 30, 38, 0.94),
+    rgba(34, 30, 40, 0.94)
+  ) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+
+/* 调整导航栏整体高度 */
+#headNav {
+    height: 56px !important;   /* 默认大约 80~90px */
+    line-height: 56px !important;
+}
+
+
+
+/* 社交链接，微信弹窗 */
+
+/* ===== WeChat Modal 全站统一弹窗 ===== */
+
+.wechat-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999 !important;
+    animation: fadeIn .25s ease;
+
+}
+
+/* 弹窗内容 */
+.wechat-content {
+    background: rgba(255,255,255,0.92);
+    padding: 28px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: scaleIn .25s ease;
+}
+
+/* 夜间模式适配 */
+.dark-mode .wechat-content {
+    background: rgba(30,30,30,0.95);
+}
+
+/* 二维码 */
+.wechat-content img {
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+/* 标题 */
+.wechat-title {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: var(--main-color);
+    letter-spacing: .05em;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@keyframes scaleIn {
+    from {transform:scale(.85);}
+    to {transform:scale(1);}
+}
+
+
+
+/* ============================= */
+/* Footer Minimal Typography Fix */
+/* ============================= */
+
+/* 可调参数：统一管理，后面不用到处改 */
+:root{
+  --aha-footer-text: rgba(0, 0, 0, .58);
+  --aha-footer-text-hover: rgba(0, 0, 0, .86);
+  --aha-footer-divider: rgba(0, 0, 0, .22);
+}
+.DarkMode{
+  --aha-footer-text: rgba(255, 255, 255, .72);
+  --aha-footer-text-hover: rgba(255, 255, 255, .92);
+  --aha-footer-divider: rgba(255, 255, 255, .22);
+}
+
+/* footer 外壳极简化 */
+footer, .page-footer{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  position: relative;
+}
+
+/* 顶部细分割线 */
+footer::before, .page-footer::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:1px;
+  pointer-events:none;
+  background: linear-gradient(to right,
+    transparent,
+    var(--aha-footer-divider),
+    transparent
+  );
+}
+
+/* ✅ 只“统一文本”，不要对所有元素开炮（避免误伤图标/按钮/SVG等） */
+footer,
+.page-footer{
+  color: var(--aha-footer-text);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 统一 footer 内常见文本容器的颜色（覆盖 Materialize 的 grey/white 类） */
+footer :is(p, span, small, strong, em, b, li, dt, dd, label, div),
+.page-footer :is(p, span, small, strong, em, b, li, dt, dd, label, div),
+footer :is(.grey-text, .white-text, [class*="text-"]),
+.page-footer :is(.grey-text, .white-text, [class*="text-"]){
+  color: var(--aha-footer-text) !important;
+}
+
+/* 链接 */
+footer a, .page-footer a{
+  color: var(--aha-footer-text) !important;
+  transition: color .15s ease;
+}
+footer a:hover, .page-footer a:hover{
+  color: var(--aha-footer-text-hover) !important;
+}
+
+/* ✅ 图标跟随链接颜色（不强行全局覆盖） */
+footer a i, .page-footer a i,
+footer a svg, .page-footer a svg{
+  color: inherit !important;
+  fill: currentColor;
+}
+
+
+
+/* ========================================= */
+/* Logo inject via ::before (survive DOM rewrite) */
+/* ========================================= */
+
+/* 让 brand-logo a 有空间放图标 */
+nav .brand-logo a{
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 用伪元素插入 logo 图标 */
+nav .brand-logo a::before{
+  content: "";
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  background: url("/medias/logo2.png") center/contain no-repeat;
+  opacity: .95;
+}
+
+/* DarkMode 下：用白色 logo 或反相 */
+body.DarkMode nav .brand-logo a::before{
+  /* 方案1：如果你有白色版，推荐改成它 */
+  background-image: url("/medias/favicon2.png");
+  /* 方案2：没有白色版就用滤镜（两者二选一）
+  filter: invert(1) brightness(1.2) contrast(1.1);
+  */
+}
+
+/* DarkMode 下文字确保可见 */
+body.DarkMode nav .brand-logo{
+  color: rgba(255,255,255,.95) !important;
+}
+body.DarkMode nav .brand-logo a,
+body.DarkMode nav .brand-logo span{
+  color: rgba(255,255,255,.95) !important;
+}
+
+body.DarkMode #headNav,
+body.DarkMode #headNav.nav-transparent{
+  background: rgba(18,18,18,.88) !important;
+  background-image: none !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body:not(.DarkMode) .brand-logo img.logo-img{
+  display: none !important;
+}
+
+
+/* =======================================================
+   AHA Home System Variables (single source of truth)
+======================================================= */
+:root{
+  /* unified width */
+  --home-max: 1200px;      /* 你可改 1100 / 1280 */
+  --home-gap: 40px;        /* 越大越窄（左右留白） */
+
+  /* Light panel */
+  --aha-panel-bg: rgba(255,255,255,.78);
+  --aha-panel-border: rgba(0,0,0,.06);
+  --aha-panel-shadow: 0 10px 30px rgba(0,0,0,.10);
+
+  --aha-text-strong: rgba(0,0,0,.82);
+  --aha-text: rgba(0,0,0,.75);
+  --aha-text-muted: rgba(0,0,0,.55);
+  --aha-divider: rgba(0,0,0,.08);
+
+  /* Dark panel */
+  --aha-panel-bg-dark: rgba(255,255,255,.05);
+  --aha-panel-border-dark: rgba(255,255,255,.10);
+  --aha-panel-shadow-dark: 0 14px 40px rgba(0,0,0,.45);
+
+  /* Dark card */
+  --aha-card-bg-dark: rgba(0,0,0,.22);
+  --aha-card-border-dark: rgba(255,255,255,.10);
+  --aha-card-shadow-dark: 0 10px 26px rgba(0,0,0,.40);
+
+  --aha-text-strong-dark: rgba(255,255,255,.92);
+  --aha-text-dark: rgba(255,255,255,.74);
+  --aha-text-muted-dark: rgba(255,255,255,.72);
+  --aha-divider-dark: rgba(255,255,255,.10);
+}
+
+/* =======================================================
+   Unified Home Width: #indexCard + Projects + Articles
+======================================================= */
+#indexCard,
+section.projects-section.container,
+article#articles.container{
+  max-width: var(--home-max) !important;
+  width: min(var(--home-max), calc(100% - var(--home-gap))) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* =======================================================
+   Projects Section (Light)
+======================================================= */
+section.projects-section.container{
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--aha-panel-bg);
+  border: 1px solid var(--aha-panel-border);
+  box-shadow: var(--aha-panel-shadow);
+}
+
+.projects-header{ text-align:center; margin-bottom:18px; }
+.projects-title{
+  margin:0;
+  font-size:28px;
+  letter-spacing:.02em;
+  color: var(--main-color);
+  font-weight:700;
+}
+.projects-subtitle{
+  margin:8px 0 0;
+  color: var(--secondary-color);
+  font-size:14px;
+}
+
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:16px;
+  margin-top:16px;
+}
+
+.project-card{
+  background: rgba(255,255,255,.82);
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.project-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(0,0,0,.12);
+}
+
+.project-name{
+  margin:0 0 8px;
+  font-size:18px;
+  font-weight:700;
+  color: var(--main-color);
+}
+
+.project-desc{
+  margin:0 0 12px;
+  color:#3b3b3b;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.project-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+.tag{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  background: rgba(47,111,94,.10);
+  color: var(--accent-color);
+  border: 1px solid rgba(47,111,94,.18);
+}
+
+.project-actions{ display:flex; gap:10px; }
+
+/* 只限定在 projects 内，避免污染全站 .btn */
+.projects-section .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:13px;
+  text-decoration:none;
+  border:1px solid rgba(0,0,0,.10);
+}
+.projects-section .btn.primary{
+  background: var(--accent-color);
+  color:#fff !important;
+  border-color: transparent;
+}
+.projects-section .btn.ghost{
+  background: rgba(255,255,255,.65);
+  color: var(--main-color) !important;
+}
+
+@media (max-width: 1024px){
+  .projects-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px){
+  section.projects-section.container{ padding: 18px; }
+  .projects-grid{ grid-template-columns: 1fr; }
+}
+
+/* =======================================================
+   Announcements Board (Light + Dark)
+======================================================= */
+.projects-section .announce-board{
+  margin: 0 auto 36px;
+  padding: 20px 28px;
+  border-radius: 16px;
+  background: var(--aha-panel-bg);
+  border: 1px solid var(--aha-panel-border);
+  box-shadow: var(--aha-panel-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.projects-section .announce-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding-bottom:14px;
+  margin-bottom:12px;
+  border-bottom:1px solid var(--aha-divider);
+}
+
+.projects-section .announce-badge{
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:3px 12px;
+  border-radius:999px;
+  background: rgba(2,119,237,.75);
+  color:#fff;
+}
+
+.projects-section .announce-title{
+  margin:0;
+  font-size:1.1rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  color: var(--aha-text-strong);
+}
+
+.projects-section .announce-sub{
+  font-size:.92rem;
+  color: var(--aha-text-muted);
+}
+
+.projects-section .announce-list{ list-style:none; margin:10px 0 0; padding:0; }
+
+.projects-section .announce-list li{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 0;
+  font-size:.98rem;
+  line-height:1.7;
+  color: var(--aha-text);
+}
+
+.projects-section .announce-list .text{
+  font-weight:600;
+  letter-spacing:.02em;
+  text-align:center;
+}
+
+.projects-section .announce-list li:hover{
+  color: rgba(2,119,237,.90);
+}
+
+/* DarkMode */
+body.DarkMode section.projects-section.container{
+  background: var(--aha-panel-bg-dark) !important;
+  border: 1px solid var(--aha-panel-border-dark) !important;
+  box-shadow: var(--aha-panel-shadow-dark) !important;
+}
+
+body.DarkMode .projects-section .announce-board{
+  background: var(--aha-card-bg-dark) !important;
+  border: 1px solid var(--aha-card-border-dark) !important;
+  box-shadow: var(--aha-card-shadow-dark) !important;
+}
+
+body.DarkMode .projects-section .announce-head{
+  border-bottom-color: var(--aha-divider-dark) !important;
+}
+
+body.DarkMode .projects-section .announce-title{
+  color: var(--aha-text-strong-dark) !important;
+}
+body.DarkMode .projects-section .announce-sub{
+  color: var(--aha-text-muted-dark) !important;
+}
+body.DarkMode .projects-section .announce-list li{
+  color: var(--aha-text-dark) !important;
+  opacity: 1 !important;
+}
+body.DarkMode .projects-section .announce-list li:hover{
+  color: rgba(120,190,255,.95) !important;
+}
+
+/* =======================================================
+   Projects Cards (DarkMode)
+======================================================= */
+body.DarkMode section.projects-section.container .project-card{
+  background: var(--aha-card-bg-dark) !important;
+  border: 1px solid var(--aha-card-border-dark) !important;
+  box-shadow: var(--aha-card-shadow-dark) !important;
+  border-radius: 16px;
+}
+
+body.DarkMode section.projects-section.container .project-name{
+  color: var(--aha-text-strong-dark) !important;
+}
+body.DarkMode section.projects-section.container .project-desc{
+  color: var(--aha-text-dark) !important;
+  opacity: 1 !important;
+}
+
+/* tag/chip 统一暗黑可读 */
+body.DarkMode section.projects-section.container .tag,
+body.DarkMode section.projects-section.container .chip{
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  color: rgba(255,255,255,.85) !important;
+}
+
+/* =======================================================
+   Academic TOC (Articles list)
+   ✅ 注意：你项目 DarkMode class 是 body.DarkMode
+======================================================= */
+:root{
+  --toc-line: rgba(0,0,0,.12);
+  --toc-dot: rgba(0,0,0,.22);
+  --toc-hover: var(--accent-color);
+}
+
+/* 单列：每条文章占满一行 */
+#articles .article{
+  width: 100% !important;
+  margin: 0 0 10px 0 !important;
+}
+
+/* 去卡片：透明背景、无阴影 */
+#articles .card{
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+/* 隐藏封面图 */
+#articles .card-image img{
+  display: none !important;
+}
+
+/* 隐藏摘要（仅标题） */
+#articles .summary,
+#articles .card-content > p{
+  display: none !important;
+}
+
+/* 标题在 card-image 里时：做成目录项 */
+#articles .card-image .card-title{
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+
+  display: block !important;
+  padding: 10px 12px 10px 28px !important;
+  margin: 0 !important;
+
+  font-size: 1.06rem !important;
+  font-weight: 650 !important;
+  letter-spacing: .2px !important;
+  line-height: 1.6 !important;
+
+  border-left: 2px solid var(--toc-line);
+}
+
+/* 圆点 */
+#articles .card-image .card-title::before{
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--toc-dot);
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+
+/* 标题链接 */
+#articles .card-image .card-title a{
+  color: rgba(0,0,0,.82) !important;
+  transition: color .25s ease, transform .25s ease, opacity .25s ease;
+  display: inline-block;
+}
+#articles .card:hover .card-image .card-title a{
+  color: var(--toc-hover) !important;
+  transform: translateX(6px);
+  opacity: .95;
+}
+#articles .card:hover .card-image .card-title::before{
+  border-color: var(--toc-hover);
+  background: rgba(47,111,94,.10);
+  transform: scale(1.05);
+}
+
+/* 玻璃黑标题条 */
+#articles .card-image{
+  background: rgba(0,0,0,.38) !important;
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+#articles .card-image .card-title{
+  background: transparent !important;
+  color: rgba(255,255,255,.92) !important;
+}
+
+/* DarkMode 适配（你原来写 body.dark 是错的） */
+body.DarkMode #articles .card-image .card-title a{
+  color: rgba(255,255,255,.90) !important;
+}
+body.DarkMode #articles .card-image .card-title{
+  border-left-color: rgba(255,255,255,.14) !important;
+}
+body.DarkMode #articles .card-image .card-title::before{
+  background: rgba(0,0,0,.20);
+  border-color: rgba(255,255,255,.26);
+}
+
+/* ===== 首页封面品牌标识（最终稳定版）===== */
+
+.index-cover .cover-btns {
+    margin-bottom: 5px !important;  /* 按钮下方空间 */
+}
+.index-cover .cover-brand {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.9);
+    font-family: "Playfair Display", serif;
+
+    /* 关键部分 */
+    margin: 0;
+    position: relative;
+    top: 150px;       /* 向下移动 */
+    z-index: 10;     /* 保证在图标上层 */
+}
+
+.index-cover .cover-social-link {
+    margin-top: 0 !important;
+    position: relative;
+    z-index: 5;
+}
+
+/* 小屏适配 */
+@media (max-width: 600px){
+    .index-cover .cover-btns {
+        margin-bottom: 22px !important;
+    }
+    .index-cover .cover-brand {
+        font-size: 18px;
+        margin-bottom: 15px !important;
+    }
+}
+
+/* 隐藏首页横幅中的社交图标 */
+.index-cover .cover-social-link {
+    display: none !important;
+}
+
+/* 隐藏首页开始按钮左侧图标 */
+.index-cover .cover-btns .btn i.fa-angle-double-down {
+    display: none !important;
+}
+
+
+    /*
+    display: flex;
+    justify-content: center; 
+    */
+    /* 水平居中 */ 
+   /* align-items: center; */
+    /* 垂直居中 */ 
+    /* min-height: 10vh; */
+    /* 确保父容器至少占满整个视口高度 */ 
